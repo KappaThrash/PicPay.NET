@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="PicPay/PicPay.csproj" />
+  <Folder Name="/tests/">
+    <Project Path="tests/PicPay.Tests/PicPay.Tests.csproj" />
+  </Folder>
+  <Project Path="PicPay.csproj" />
 </Solution>
