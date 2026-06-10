@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using PicPay.Repository;
 using PicPay.Repository.DataContext;
 using PicPay.Services;
+using PicPay.Services.Notification;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,9 @@ builder.Services.AddScoped<ICarteiraService, CarteiraService>();
 builder.Services.AddScoped<ICarteiraRepository, CarteiraRepository>();
 builder.Services.AddScoped<ITransacaoRepository, TransacaoRepository>();
 builder.Services.AddScoped<ITransacaoService, TransacaoService>();
+
+builder.Services.AddSingleton<RabbitMqConnection>();
+builder.Services.AddSingleton<NotificationSender>();
 
 
 builder.Services.AddDbContext<PicPayDbContext>(options =>

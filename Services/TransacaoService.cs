@@ -3,19 +3,22 @@ using PicPay.Domains;
 using PicPay.Exceptions;
 using PicPay.Repository;
 using PicPay.Repository.DataContext;
+using PicPay.Services.Notification;
 
 namespace PicPay.Services
 {
     public class TransacaoService(ITransacaoRepository _transacaoRepository, 
-        ICarteiraRepository _carteiraRepository, PicPayDbContext _DataBase) : ITransacaoService
+        ICarteiraRepository _carteiraRepository, PicPayDbContext _DataBase,
+        NotificationSender _notificationSender) : ITransacaoService
     {
         public async Task<TransacaoDTO> Processar(TransacaoDTO transacaoDTO)
         {
             var carteiraPayer = await _carteiraRepository.FindByIdWithUserAsync(transacaoDTO.CarteiraPayerId) ?? throw new KeyNotFoundException();
 
-            var carteiraPayee = await _carteiraRepository.FindByIdAsync(transacaoDTO.CarteiraPayeeId) ?? throw new KeyNotFoundException();
+            var carteiraPayee = await _carteiraRepository.FindByIdWithUserAsync(transacaoDTO.CarteiraPayeeId) ?? throw new KeyNotFoundException();
 
             var UsuarioPayer = carteiraPayer.Usuario ?? throw new KeyNotFoundException();
+            var UsuarioPayee = carteiraPayee.Usuario ?? throw new KeyNotFoundException();
 
             if (UsuarioPayer.IsLojista())
             {
@@ -23,7 +26,6 @@ namespace PicPay.Services
             }
 
             using var transaction = await _DataBase.Database.BeginTransactionAsync();
-
             try
             {
                 carteiraPayer.Debitar(transacaoDTO.Valor);
@@ -35,6 +37,17 @@ namespace PicPay.Services
                 await transaction.CommitAsync();
 
                 transacaoDTO.Id = entity.Id;
+
+                await _notificationSender.PublishEmail(
+                    new EmailDTO
+                    {
+                        PayerNome = UsuarioPayer.Nome,
+                        PayeeNome = UsuarioPayee.Nome,
+                        PayerEmail = UsuarioPayer.Email,
+                        PayeeEmail = UsuarioPayee.Email,
+                        TransactionValue = transacaoDTO.Valor
+                    }
+                );
 
                 return transacaoDTO;
             }
