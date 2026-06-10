@@ -1,4 +1,5 @@
 ﻿using PicPay.Domains;
+using PicPay.Factory;
 
 namespace PicPay.Tests;
 
@@ -8,14 +9,7 @@ public class UsuarioTests
 
     public UsuarioTests()
     {
-        usuario = new Usuario(
-            "Maria Clara",
-            "maria@gmail.com",
-            TipoEnum.LOJISTA,
-            "1111111111",
-            new DateOnly(2007, 4, 17),
-            "ABC123"
-        );
+        usuario = UsuarioFactory.UsuarioLojista();
     }
 
     [Fact]

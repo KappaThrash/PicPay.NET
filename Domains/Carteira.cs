@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using PicPay.Exceptions;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PicPay.Domains
 {
@@ -19,12 +20,32 @@ namespace PicPay.Domains
 
         public Decimal Debitar(Decimal valor)
         {
+            if (valor == 0)
+            {
+                throw new BusinessException("Valor a debitar 0");
+            }
+
+            if (valor < 0)
+            {
+                throw new BusinessException("Valor a debitar negativo!");
+            }
+
             this.Balance -= valor;
             return this.Balance;
         }
 
         public Decimal Creditar(Decimal valor)
         {
+            if (valor == 0)
+            {
+                throw new BusinessException("Valor a creditar !");
+            }
+
+            if (valor < 0)
+            {
+                throw new BusinessException("Valor a creditar negativo!");
+            }
+
             this.Balance += valor;
             return this.Balance;
         }
