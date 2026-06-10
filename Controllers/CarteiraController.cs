@@ -5,7 +5,7 @@ using PicPay.Services;
 
 namespace PicPay.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class CarteiraController(ICarteiraService _service) : ControllerBase
     {
