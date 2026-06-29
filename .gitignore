@@ -184,6 +184,10 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
+
+#Custom
+Infra/
+
 # Click-Once directory
 publish/
 

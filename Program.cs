@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using PicPay.Extesions;
 using PicPay.Repository;
 using PicPay.Repository.DataContext;
 using PicPay.Services;
 using PicPay.Services.Notification;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,12 +14,8 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AddScoped<IUsuarioService, UsuarioService>();
-builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-builder.Services.AddScoped<ICarteiraService, CarteiraService>();
-builder.Services.AddScoped<ICarteiraRepository, CarteiraRepository>();
-builder.Services.AddScoped<ITransacaoRepository, TransacaoRepository>();
-builder.Services.AddScoped<ITransacaoService, TransacaoService>();
+builder.Services.AddRepositories();
+builder.Services.AddServices();
 
 builder.Services.AddSingleton<RabbitMqConnection>();
 builder.Services.AddSingleton<NotificationSender>();
@@ -32,6 +30,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();

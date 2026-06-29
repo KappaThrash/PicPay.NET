@@ -30,11 +30,12 @@ namespace PicPay.Services
 
             dadosImagem = memoryStream.ToArray();
 
-            var usuario = await repository.FindByIdAsync(id) ?? throw new UserNotFoundException("Usuario não encontrado " + nameof(SaveUsuarioImagemAsync));
+            var usuario = await repository.FindByIdAsync(id) ?? 
+                throw new UserNotFoundException("Usuario não encontrado " + nameof(SaveUsuarioImagemAsync));
 
-            usuario.Imagem.Bytes = dadosImagem;
+            usuario.Imagem!.Bytes = dadosImagem;
             usuario.Imagem.ContentType = file.ContentType;
-            usuario.Imagem.NomeImagem = $"{usuario.Nome.ToLower()}UsuarioImagem";
+            usuario.Imagem.NomeImagem = $"{usuario.Nome!.ToLower()}UsuarioImagem";
 
             return await repository.SaveAsync(usuario);
             
