@@ -7,6 +7,7 @@
     <EnableSdkContainerDebugging>True</EnableSdkContainerDebugging>
     <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:9.0</ContainerBaseImage>
     <UserSecretsId>74d0aed7-10f4-41a4-882a-c85c6669a0c2</UserSecretsId>
+	<PublishAot>true</PublishAot>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,6 +34,10 @@
     <EmbeddedResource Remove="tests\**" />
     <None Remove="Factory\NovaPasta\**" />
     <None Remove="tests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infra\" />
   </ItemGroup>
 
 

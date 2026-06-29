@@ -24,7 +24,24 @@ namespace PicPay.Controllers
         {
             var usuario = await _usuarioService.SaveUsuarioAsync(usuarioDTO);
 
-            return CreatedAtAction("GetUsuario", new {id = usuario.Id }, usuario);
+            return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
+        }
+
+        [HttpPost("{id}/imagem")]
+        public async Task<ActionResult> PostUsuarioImagem([FromForm] IFormFile file, Guid id)
+        {
+            if (file.Length <= 0 || file == null)
+            {
+                return BadRequest("Arquivo tem tamanho 0 ou não enviado");
+            }
+
+            if (file.ContentType.StartsWith("image/"))
+            {
+                return BadRequest("Arquivo");
+            }
+
+            var usuario = await _usuarioService.SaveUsuarioImagemAsync(file, id);
+            return CreatedAtAction("GetUsuario", new {id = id});
         }
 
         [HttpGet("{id}", Name = "GetUsuario")]

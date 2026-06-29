@@ -14,7 +14,7 @@ namespace PicPay.Domains
         public string? Cpf { get; set; }
         public DateOnly DataNascimento { get; set; }
         public string? Senha { get; set; }
-
+        public Imagem? Imagem { get; set; } = null;
         public Carteira? carteira { get; set; }
 
         public Usuario(string nome, string email, TipoEnum tipo, string cpf, DateOnly dataNascimento, string senha)

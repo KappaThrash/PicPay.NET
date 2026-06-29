@@ -6,5 +6,7 @@ namespace PicPay.Services
     {
         public Task<Usuario?> FindUsuarioAsync(Guid id);
         public Task<Usuario> SaveUsuarioAsync(UsuarioDTO usuarioDTO);
+        public Task<Usuario?> SaveUsuarioImagemAsync(IFormFile file, Guid id);
+
     }
 }

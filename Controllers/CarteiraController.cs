@@ -10,7 +10,7 @@ namespace PicPay.Controllers
     public class CarteiraController(ICarteiraService _service) : ControllerBase
     {
 
-        // GET api/<CarteiraController>/{id}
+        // GET <CarteiraController>/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Carteira>> GetCarteira(Guid id)
         {
@@ -24,7 +24,7 @@ namespace PicPay.Controllers
             return Ok(carteira);
         }
 
-        // GET api/<CarteiraController>/user/{id}
+        // GET <CarteiraController>/user/{id}
         [HttpGet("user/{userId}")]
         public async Task<ActionResult<Carteira>> GetCarteiraByUser(Guid userId)
         {
@@ -38,7 +38,7 @@ namespace PicPay.Controllers
             return Ok(carteira);
         }
 
-        // POST api/<CarteiraController>
+        // POST <CarteiraController>
         [HttpPost("{UserId}")]
         public async Task<ActionResult<Carteira>> Post(Guid UserId)
         {
@@ -49,7 +49,7 @@ namespace PicPay.Controllers
             return CreatedAtAction(nameof(GetCarteira), new { id = carteira.Id }, carteiraDTO);
         }
 
-        // DELETE api/<CarteiraController>/5
+        // DELETE <CarteiraController>/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {

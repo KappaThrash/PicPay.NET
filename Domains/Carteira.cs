@@ -20,14 +20,15 @@ namespace PicPay.Domains
 
         public Decimal Debitar(Decimal valor)
         {
-            if (valor == 0)
+
+            if(valor > this.Balance)
             {
-                throw new BusinessException("Valor a debitar 0");
+                throw new BusinessException("Valor a debitar maior que o saldo na conta");
             }
 
-            if (valor < 0)
+            if (valor <= 0)
             {
-                throw new BusinessException("Valor a debitar negativo!");
+                throw new BusinessException("Valor a debitar negativo ou zero");
             }
 
             this.Balance -= valor;
@@ -36,14 +37,9 @@ namespace PicPay.Domains
 
         public Decimal Creditar(Decimal valor)
         {
-            if (valor == 0)
+            if (valor <= 0)
             {
                 throw new BusinessException("Valor a creditar !");
-            }
-
-            if (valor < 0)
-            {
-                throw new BusinessException("Valor a creditar negativo!");
             }
 
             this.Balance += valor;
