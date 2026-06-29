@@ -14,6 +14,9 @@ namespace PicPay.Repository
 
         public async Task<Usuario?> FindByIdAsync(Guid id) => await _DataBase.Usuarios.FindAsync(id);
 
+        public async Task<Usuario?> FindByEmailAsync(string email) =>
+            await _DataBase.Usuarios.FirstOrDefaultAsync(usuario => usuario.Email == email);
+
         public async Task<List<Usuario>> GetAll() => await _DataBase.Usuarios.ToListAsync();
 
         public async Task<Usuario> SaveAsync(Usuario usuario)
