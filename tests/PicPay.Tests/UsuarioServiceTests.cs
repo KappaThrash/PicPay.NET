@@ -8,7 +8,6 @@ namespace PicPay.Tests
 {
     internal class UsuarioServiceTests
     {
-        [Fact]
 
     }
 }

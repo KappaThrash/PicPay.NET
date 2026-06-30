@@ -1,6 +1,6 @@
 ﻿using PicPay.Domains;
 using PicPay.Exceptions;
-using PicPay.Repository;
+using PicPay.Repository.UsuarioRepositories;
 
 namespace PicPay.Services.UsuarioServices
 {
