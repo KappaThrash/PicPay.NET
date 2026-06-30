@@ -12,6 +12,7 @@ namespace PicPay.Controllers
         [HttpPost]
         public async Task<ActionResult<TransacaoDTO>> PostTransacao([FromBody] TransacaoDTO transacaoDTO){
             var transacao = await _transacaoService.Processar(transacaoDTO);
+            logger.LogDebug($"");
 
             return CreatedAtAction(nameof(GetTransacao), new { id = transacao.Id }, transacao);
         }

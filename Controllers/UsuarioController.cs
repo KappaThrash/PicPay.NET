@@ -35,9 +35,9 @@ namespace PicPay.Controllers
                 return BadRequest("Arquivo tem tamanho 0 ou não enviado");
             }
 
-            if (file.ContentType.StartsWith("image/"))
+            if (!file.ContentType.StartsWith("image/"))
             {
-                return BadRequest("Arquivo");
+                return BadRequest("Arquivo não é uma imagem");
             }
 
             var usuario = await _usuarioService.SaveUsuarioImagemAsync(file, id);
