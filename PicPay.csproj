@@ -37,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Domains\Carteira\" />
     <Folder Include="Infra\" />
   </ItemGroup>
 

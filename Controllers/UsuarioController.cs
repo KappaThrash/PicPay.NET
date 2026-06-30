@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using PicPay.Domains;
-using PicPay.Services;
+using PicPay.Services.UsuarioServices;
 
 namespace PicPay.Controllers
 {

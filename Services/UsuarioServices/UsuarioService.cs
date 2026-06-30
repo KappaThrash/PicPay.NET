@@ -2,7 +2,7 @@
 using PicPay.Exceptions;
 using PicPay.Repository;
 
-namespace PicPay.Services
+namespace PicPay.Services.UsuarioServices
 {
     public class UsuarioService(IUsuarioRepository repository) : IUsuarioService
     {

@@ -1,6 +1,6 @@
 ﻿using PicPay.Domains;
 
-namespace PicPay.Repository
+namespace PicPay.Repository.CarteiraRepositories
 {
     public interface ICarteiraRepository
     {

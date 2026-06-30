@@ -3,7 +3,7 @@ using PicPay.Domains;
 using PicPay.Exceptions;
 using PicPay.Repository.DataContext;
 
-namespace PicPay.Repository
+namespace PicPay.Repository.UsuarioRepositories
 {
     public class UsuarioRepository(PicPayDbContext _DataBase) : IUsuarioRepository
     {

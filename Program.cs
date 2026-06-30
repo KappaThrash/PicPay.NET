@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using PicPay.Extesions;
+using PicPay.Extensions;
 using PicPay.Repository;
 using PicPay.Repository.DataContext;
 using PicPay.Services;

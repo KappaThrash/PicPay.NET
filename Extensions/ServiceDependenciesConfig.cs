@@ -1,7 +1,9 @@
 ﻿using PicPay.Repository;
-using PicPay.Services;
+using PicPay.Services.CarteiraServices;
+using PicPay.Services.TransacaoServices;
+using PicPay.Services.UsuarioServices;
 
-namespace PicPay.Extesions
+namespace PicPay.Extensions
 {
     public static class ServiceDependenciesConfig
     {

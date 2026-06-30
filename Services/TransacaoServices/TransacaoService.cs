@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using PicPay.Domains;
 using PicPay.Exceptions;
-using PicPay.Repository;
+using PicPay.Repository.CarteiraRepositories;
 using PicPay.Repository.DataContext;
+using PicPay.Repository.TransacaoRepositories;
 using PicPay.Services.Notification;
 
-namespace PicPay.Services
+namespace PicPay.Services.TransacaoServices
 {
     public class TransacaoService(ITransacaoRepository _transacaoRepository, 
         ICarteiraRepository _carteiraRepository, PicPayDbContext _DataBase,

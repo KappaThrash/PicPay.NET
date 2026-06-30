@@ -2,7 +2,7 @@
 using PicPay.Domains;
 using PicPay.Repository.DataContext;
 
-namespace PicPay.Repository
+namespace PicPay.Repository.CarteiraRepositories
 {
     public class CarteiraRepository(PicPayDbContext _DataBase) : ICarteiraRepository
     {

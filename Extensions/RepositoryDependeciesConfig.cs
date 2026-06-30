@@ -1,6 +1,8 @@
-﻿namespace PicPay.Extesions
+﻿namespace PicPay.Extensions
 {
-    using PicPay.Repository;
+    using PicPay.Repository.CarteiraRepositories;
+    using PicPay.Repository.TransacaoRepositories;
+    using PicPay.Repository.UsuarioRepositories;
     using PicPay.Services;
     using System.Runtime.CompilerServices;
 

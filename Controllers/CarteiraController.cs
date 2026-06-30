@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PicPay.Domains;
-using PicPay.Services;
+using PicPay.Services.CarteiraServices;
 
 
 namespace PicPay.Controllers

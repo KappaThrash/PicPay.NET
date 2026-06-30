@@ -1,8 +1,9 @@
 ﻿using PicPay.Domains;
 using PicPay.Exceptions;
 using PicPay.Repository;
+using PicPay.Repository.CarteiraRepositories;
 
-namespace PicPay.Services
+namespace PicPay.Services.CarteiraServices
 {
     public class CarteiraService(ICarteiraRepository _carteiraRepository, IUsuarioRepository _usuarioRepository) : ICarteiraService
     {
