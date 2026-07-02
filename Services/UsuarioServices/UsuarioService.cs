@@ -35,7 +35,7 @@ namespace PicPay.Services.UsuarioServices
 
             usuario.Imagem!.Bytes = dadosImagem;
             usuario.Imagem.ContentType = file.ContentType;
-            usuario.Imagem.NomeImagem = $"{usuario.Nome!.ToLower()}UsuarioImagem";
+            usuario.Imagem.NomeImagem = $"{usuario.Id.ToString()}UsuarioImagem";
 
             return await repository.SaveAsync(usuario);
             
