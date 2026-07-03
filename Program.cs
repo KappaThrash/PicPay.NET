@@ -18,7 +18,7 @@ builder.Services.AddRepositories();
 builder.Services.AddServices();
 
 builder.Services.AddSingleton<RabbitMqConnection>();
-builder.Services.AddSingleton<NotificationSender>();
+builder.Services.AddSingleton<INotificationSender, NotificationSender>();
 
 
 builder.Services.AddDbContext<PicPayDbContext>(options =>

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata;
 using PicPay.Domains;
 using PicPay.Exceptions;
 using PicPay.Repository.CarteiraRepositories;
@@ -10,7 +10,7 @@ namespace PicPay.Services.TransacaoServices
 {
     public class TransacaoService(ITransacaoRepository _transacaoRepository, 
         ICarteiraRepository _carteiraRepository, PicPayDbContext _DataBase,
-        NotificationSender _notificationSender) : ITransacaoService
+        INotificationSender _notificationSender) : ITransacaoService
     {
         public async Task<TransacaoDTO> Processar(TransacaoDTO transacaoDTO)
         {
