@@ -54,5 +54,12 @@ namespace PicPay.Controllers
 
             return Ok(usuario);
         }
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteUsuario(Guid id)
+        {
+            await _usuarioService.DeleteUsuarioAsync(id);
+            return Ok($"Usuário com ID {id} excluído com sucesso.");
+        }
     }
 }

@@ -96,7 +96,7 @@ namespace PicPay.Tests
             var usuario = new Usuario("Nome", "email@ex.com", TipoEnum.USUARIO, "123", DateOnly.FromDateTime(DateTime.UtcNow), "senha") { Id = userId };
             var expectedCarteira = new Carteira(0m, userId);
 
-            _usuarioRepositoryMock.Setup(r => r.FindByIdAsync(userId)).ReturnsAsync(usuario);
+            _usuarioRepositoryMock.Setup(r => r.GetByIdAsync(userId)).ReturnsAsync(usuario);
             _carteiraRepositoryMock.Setup(r => r.SaveCarteira(It.IsAny<Carteira>())).ReturnsAsync(expectedCarteira);
 
             // Act
@@ -114,7 +114,7 @@ namespace PicPay.Tests
         {
             // Arrange
             var userId = Guid.NewGuid();
-            _usuarioRepositoryMock.Setup(r => r.FindByIdAsync(userId)).ReturnsAsync((Usuario?)null);
+            _usuarioRepositoryMock.Setup(r => r.GetByIdAsync(userId)).ReturnsAsync((Usuario?)null);
 
             // Act & Assert
             await Assert.ThrowsAsync<UserNotFoundException>(() => _service.CreateCarteira(userId));

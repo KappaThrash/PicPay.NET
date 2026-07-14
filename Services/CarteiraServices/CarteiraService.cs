@@ -29,7 +29,7 @@ namespace PicPay.Services.CarteiraServices
 
         public async Task<Carteira> CreateCarteira(Guid userId)
         {
-            var usuario = await _usuarioRepository.FindByIdAsync(userId) 
+            var usuario = await _usuarioRepository.GetByIdAsync(userId) 
                 ?? throw new UserNotFoundException("Usuario não encontrado, carteira não pode ser criada.");
 
             Carteira carteira = new Carteira(0, userId);

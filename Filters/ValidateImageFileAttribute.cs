@@ -3,6 +3,11 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace PicPay.Filters
 {
+    /// <summary>
+    /// Valida se o arquivo enviado é uma imagem válida, 
+    /// verificando o tamanho do arquivo, o tipo de mídia e a extensão do arquivo,
+    /// lendo as configurações do appsettings.json.
+    /// </summary>
     public class ValidateImageFileAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -78,8 +83,6 @@ namespace PicPay.Filters
                     StatusCode = StatusCodes.Status415UnsupportedMediaType
                 };
             }
-
-
             
             /*ProblemDetails problemDetails = new()
             {
@@ -88,8 +91,6 @@ namespace PicPay.Filters
                 Path = context.HttpContext.Request.Path.ToString(),
                 Status = StatusCodes.Status415UnsupportedMediaType
             };*/
-
-
 
             base.OnActionExecuting(context);
         }

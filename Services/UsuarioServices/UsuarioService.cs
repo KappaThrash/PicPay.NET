@@ -9,7 +9,13 @@ namespace PicPay.Services.UsuarioServices
 
         public async Task<Usuario?> FindUsuarioAsync(Guid id)
         {
-            return await repository.FindByIdAsync(id);
+            return await repository.GetByIdAsync(id);
+        }
+
+        public async Task DeleteUsuarioAsync(Guid id)
+        {
+            await repository.DeleteByIdAsync(id);
+            await repository.SaveChangesAsync();
         }
 
         public async Task<Usuario> SaveUsuarioAsync(UsuarioDTO usuarioDTO)
@@ -21,6 +27,7 @@ namespace PicPay.Services.UsuarioServices
             return await repository.SaveAsync(usuario);
         }
 
+        /// <inheritdoc />
         public async Task<Usuario?> SaveUsuarioImagemAsync(IFormFile file, Guid id)
         {
             byte[] dadosImagem;
@@ -30,7 +37,7 @@ namespace PicPay.Services.UsuarioServices
 
             dadosImagem = memoryStream.ToArray();
 
-            var usuario = await repository.FindByIdAsync(id) ?? 
+            var usuario = await repository.GetByIdAsync(id) ?? 
                 throw new UserNotFoundException("Usuario não encontrado " + nameof(SaveUsuarioImagemAsync));
 
             usuario.Imagem!.Bytes = dadosImagem;
@@ -38,7 +45,6 @@ namespace PicPay.Services.UsuarioServices
             usuario.Imagem.NomeImagem = $"{usuario.Id.ToString()}UsuarioImagem";
 
             return await repository.SaveAsync(usuario);
-            
         }
     }
 }

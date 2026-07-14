@@ -37,7 +37,7 @@ namespace PicPay.Tests
             var id = Guid.NewGuid();
             var expected = new Usuario("Nome", "email@ex.com", PicPay.Domains.TipoEnum.USUARIO, "123", DateOnly.FromDateTime(DateTime.UtcNow), "senha");
             expected.Id = id;
-            usuarioRepository.Setup(r => r.FindByIdAsync(id)).ReturnsAsync(expected);
+            usuarioRepository.Setup(r => r.GetByIdAsync(id)).ReturnsAsync(expected);
 
             // Act
             var result = await _service.FindUsuarioAsync(id);
@@ -52,7 +52,7 @@ namespace PicPay.Tests
         {
             // Arrange
             var id = Guid.NewGuid();
-            usuarioRepository.Setup(r => r.FindByIdAsync(id)).ReturnsAsync((Usuario?)null);
+            usuarioRepository.Setup(r => r.GetByIdAsync(id)).ReturnsAsync((Usuario?)null);
 
             // Act
             var result = await _service.FindUsuarioAsync(id);
@@ -114,7 +114,7 @@ namespace PicPay.Tests
                 Imagem = new Imagem()
             };
 
-            usuarioRepository.Setup(r => r.FindByIdAsync(id)).ReturnsAsync(usuario);
+            usuarioRepository.Setup(r => r.GetByIdAsync(id)).ReturnsAsync(usuario);
             usuarioRepository.Setup(r => r.SaveAsync(It.IsAny<Usuario>())).ReturnsAsync((Usuario u) => u);
 
             // Act
@@ -137,7 +137,7 @@ namespace PicPay.Tests
             var fileMock = new Mock<IFormFile>();
             fileMock.Setup(f => f.CopyToAsync(It.IsAny<Stream>(), It.IsAny<System.Threading.CancellationToken>())).Returns(Task.CompletedTask);
 
-            usuarioRepository.Setup(r => r.FindByIdAsync(id)).ReturnsAsync((Usuario?)null);
+            usuarioRepository.Setup(r => r.GetByIdAsync(id)).ReturnsAsync((Usuario?)null);
 
             // Act & Assert
             await Xunit.Assert.ThrowsAsync<PicPay.Exceptions.UserNotFoundException>(async () => await _service.SaveUsuarioImagemAsync(fileMock.Object, id));
