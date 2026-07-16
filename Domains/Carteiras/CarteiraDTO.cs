@@ -1,4 +1,4 @@
-﻿namespace PicPay.Domains
+﻿namespace PicPay.Domains.Carteiras
 {
     public record CarteiraDTO
     {

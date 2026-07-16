@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PicPay.Domains;
-using PicPay.Exceptions;
+using PicPay.Domains.Usuarios;
 using PicPay.Repository.DataContext;
 using PicPay.Repository.Template;
 

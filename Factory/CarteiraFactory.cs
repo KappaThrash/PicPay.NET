@@ -1,4 +1,4 @@
-﻿using PicPay.Domains;
+﻿using PicPay.Domains.Carteiras;
 
 namespace PicPay.Factory
 {

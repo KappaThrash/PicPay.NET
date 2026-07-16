@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PicPay.Domains;
+using PicPay.Domains.Carteiras;
+using PicPay.Domains.Lojas;
+using PicPay.Domains.Transacoes;
+using PicPay.Domains.Usuarios;
 using System.Reflection;
 
 namespace PicPay.Repository.DataContext
@@ -9,6 +12,7 @@ namespace PicPay.Repository.DataContext
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Carteira> Carteiras { get; set; }
         public DbSet<Transacao> Transacoes { get; set; }
+        public DbSet<Loja> Lojas { get; set; }
 
         public PicPayDbContext(DbContextOptions<PicPayDbContext> options) : base(options)
         {

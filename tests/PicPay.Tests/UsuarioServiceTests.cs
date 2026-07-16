@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Moq;
 using PicPay.Domains;
+using PicPay.Domains.Usuarios;
 using PicPay.Factory;
 using PicPay.Repository.UsuarioRepositories;
 using PicPay.Services.UsuarioServices;
@@ -35,7 +36,7 @@ namespace PicPay.Tests
         {
             // Arrange
             var id = Guid.NewGuid();
-            var expected = new Usuario("Nome", "email@ex.com", PicPay.Domains.TipoEnum.USUARIO, "123", DateOnly.FromDateTime(DateTime.UtcNow), "senha");
+            var expected = new Usuario("Nome", "email@ex.com", TipoEnum.USUARIO, "123", DateOnly.FromDateTime(DateTime.UtcNow), "senha");
             expected.Id = id;
             usuarioRepository.Setup(r => r.GetByIdAsync(id)).ReturnsAsync(expected);
 
@@ -69,7 +70,7 @@ namespace PicPay.Tests
             {
                 Nome = "Nome",
                 Email = "a@b.com",
-                Tipo = PicPay.Domains.TipoEnum.LOJISTA,
+                Tipo = TipoEnum.LOJISTA,
                 Cpf = "0000000",
                 DataNascimento = DateOnly.FromDateTime(DateTime.UtcNow),
                 Senha = "senha"
@@ -108,7 +109,7 @@ namespace PicPay.Tests
             fileMock.SetupGet(f => f.ContentType).Returns("image/png");
             fileMock.Setup(f => f.CopyToAsync(It.IsAny<Stream>(), It.IsAny<System.Threading.CancellationToken>())).Returns((Stream s, System.Threading.CancellationToken _) => s.WriteAsync(imageData, 0, imageData.Length));
 
-            var usuario = new Usuario("Nome", "email@ex.com", PicPay.Domains.TipoEnum.USUARIO, "123", DateOnly.FromDateTime(DateTime.UtcNow), "senha")
+            var usuario = new Usuario("Nome", "email@ex.com", TipoEnum.USUARIO, "123", DateOnly.FromDateTime(DateTime.UtcNow), "senha")
             {
                 Id = id,
                 Imagem = new Imagem()

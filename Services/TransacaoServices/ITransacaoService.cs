@@ -1,4 +1,4 @@
-﻿using PicPay.Domains;
+﻿using PicPay.Domains.Transacoes;
 
 namespace PicPay.Services.TransacaoServices
 {

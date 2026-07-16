@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PicPay.Domains
+namespace PicPay.Domains.Notificacoes
 {
     public record EmailDTO
     {

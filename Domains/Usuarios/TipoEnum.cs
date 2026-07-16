@@ -1,4 +1,4 @@
-﻿namespace PicPay.Domains
+﻿namespace PicPay.Domains.Usuarios
 {
     public enum TipoEnum
     {

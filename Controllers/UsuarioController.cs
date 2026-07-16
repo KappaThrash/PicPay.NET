@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using PicPay.Domains;
+using PicPay.Domains.Usuarios;
 using PicPay.Filters;
 using PicPay.Services.UsuarioServices;
 

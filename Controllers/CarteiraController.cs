@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PicPay.Domains;
+using PicPay.Domains.Carteiras;
 using PicPay.Services.CarteiraServices;
 
 

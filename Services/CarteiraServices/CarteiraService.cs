@@ -1,4 +1,4 @@
-﻿using PicPay.Domains;
+﻿using PicPay.Domains.Carteiras;
 using PicPay.Exceptions;
 using PicPay.Repository.CarteiraRepositories;
 using PicPay.Repository.UsuarioRepositories;

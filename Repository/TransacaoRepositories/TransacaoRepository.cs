@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PicPay.Domains;
+using PicPay.Domains.Transacoes;
 using PicPay.Repository.DataContext;
 
 namespace PicPay.Repository.TransacaoRepositories

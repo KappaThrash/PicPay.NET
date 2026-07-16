@@ -1,4 +1,4 @@
-﻿using PicPay.Domains;
+﻿using PicPay.Domains.Usuarios;
 using PicPay.Factory;
 
 namespace PicPay.Tests;

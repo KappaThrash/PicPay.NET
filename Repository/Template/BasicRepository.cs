@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PicPay.Repository.DataContext;
 
 namespace PicPay.Repository.Template
 {

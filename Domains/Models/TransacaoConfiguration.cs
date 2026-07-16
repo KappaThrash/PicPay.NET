@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using PicPay.Domains.Transacoes;
 
 namespace PicPay.Domains.Models
 {

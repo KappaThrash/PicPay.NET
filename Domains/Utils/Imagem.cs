@@ -1,4 +1,4 @@
-﻿namespace PicPay.Domains
+﻿namespace PicPay.Domains.Utils
 {
     public class Imagem
     {

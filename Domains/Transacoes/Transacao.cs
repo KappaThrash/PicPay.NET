@@ -1,4 +1,6 @@
-﻿namespace PicPay.Domains
+﻿using PicPay.Domains.Carteiras;
+
+namespace PicPay.Domains.Transacoes
 {
     public class Transacao
     {

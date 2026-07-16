@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using PicPay.Domains.Carteiras;
+using PicPay.Domains.Usuarios;
 
 namespace PicPay.Domains.Models
 {

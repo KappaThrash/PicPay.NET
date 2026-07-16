@@ -1,7 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Moq;
-using PicPay.Domains;
+using PicPay.Domains.Carteiras;
+using PicPay.Domains.Notificacoes;
+using PicPay.Domains.Transacoes;
+using PicPay.Domains.Usuarios;
 using PicPay.Exceptions;
 using PicPay.Repository.CarteiraRepositories;
 using PicPay.Repository.DataContext;

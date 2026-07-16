@@ -1,4 +1,4 @@
-﻿using PicPay.Domains;
+﻿using PicPay.Domains.Usuarios;
 using PicPay.Repository.Template;
 
 namespace PicPay.Repository.UsuarioRepositories
