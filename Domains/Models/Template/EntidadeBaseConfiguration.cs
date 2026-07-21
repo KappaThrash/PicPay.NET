@@ -6,7 +6,7 @@ namespace PicPay.Domains.Models.Template
 {
     public abstract class EntidadeBaseConfiguration<T> : IEntityTypeConfiguration<T> where T : EntidadeBase
     {
-        public void Configure(EntityTypeBuilder<T> builder)
+        public virtual void Configure(EntityTypeBuilder<T> builder)
         {
             builder.HasKey(x => x.Id);
 
@@ -23,7 +23,7 @@ namespace PicPay.Domains.Models.Template
                 .IsRequired()
                 .HasDefaultValueSql("GETDATE()");
 
-            builder.Property(x => x.DataAtualizacao).HasColumnType("datetime");
+            builder.Property(x => x.DataAtualizacao).HasColumnType("datetime2");
         }
     }
 }

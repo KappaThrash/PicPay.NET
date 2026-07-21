@@ -17,10 +17,15 @@ namespace PicPay.Repository.DataContext
         public PicPayDbContext(DbContextOptions<PicPayDbContext> options) : base(options)
         {
         }
-            protected override void OnModelCreating(ModelBuilder modelBuilder)
-            {
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(Carteira).Assembly);
-            }
+        }
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            configurationBuilder.Properties<Enum>().HaveConversion<String>();
+            base.ConfigureConventions(configurationBuilder);
+        }
     }
 }

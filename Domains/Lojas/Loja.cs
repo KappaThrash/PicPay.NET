@@ -1,6 +1,7 @@
 ﻿using PicPay.Domains.Template;
 using PicPay.Domains.Utils;
 using PicPay.Domains.Produtos;
+using PicPay.Domains.Usuarios;
 
 namespace PicPay.Domains.Lojas
 {
@@ -11,5 +12,8 @@ namespace PicPay.Domains.Lojas
         public Imagem? Imagem { get; set; }
         public ICollection<Guid> Membros { get; set; } = new List<Guid>();
         public ICollection<Produto>? Produtos { get; set; }
+        
+        public Usuario? Usuario { get; set; }
+        public Loja() { }
     }
 }

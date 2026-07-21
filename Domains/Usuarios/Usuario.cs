@@ -1,4 +1,5 @@
 using PicPay.Domains.Carteiras;
+using PicPay.Domains.Lojas;
 using PicPay.Domains.Utils;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,6 +20,7 @@ namespace PicPay.Domains.Usuarios
         public string? Senha { get; set; }
         public Imagem? Imagem { get; set; } = null;
         public Carteira? carteira { get; set; }
+        public Loja? Loja { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Usuario"/> class.

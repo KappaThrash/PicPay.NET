@@ -1,5 +1,4 @@
-using Microsoft.EntityFrameworkCore.Metadata;
-using PicPay.Domains;
+using PicPay.Domains.Notificacoes;
 using PicPay.Domains.Transacoes;
 using PicPay.Exceptions;
 using PicPay.Repository.CarteiraRepositories;

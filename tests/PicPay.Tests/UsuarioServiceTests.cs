@@ -1,15 +1,11 @@
 using Microsoft.AspNetCore.Http;
 using Moq;
-using PicPay.Domains;
+using PicPay.Domains.Utils;
 using PicPay.Domains.Usuarios;
 using PicPay.Factory;
 using PicPay.Repository.UsuarioRepositories;
 using PicPay.Services.UsuarioServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace PicPay.Tests
 {

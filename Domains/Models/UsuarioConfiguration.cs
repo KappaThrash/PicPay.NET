@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PicPay.Domains.Carteiras;
+using PicPay.Domains.Lojas;
 using PicPay.Domains.Usuarios;
 
 namespace PicPay.Domains.Models
@@ -30,6 +31,7 @@ namespace PicPay.Domains.Models
             }   );
 
             builder.HasOne(x => x.carteira).WithOne(x => x.Usuario).HasForeignKey<Carteira>(x => x.UsuarioID);
+            builder.HasOne(x => x.Loja).WithOne(x => x.Usuario).HasForeignKey<Loja>(x => x.UsuarioId);
         }
     }
 }

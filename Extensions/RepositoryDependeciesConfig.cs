@@ -4,6 +4,7 @@
     using PicPay.Repository.Template;
     using PicPay.Repository.TransacaoRepositories;
     using PicPay.Repository.UsuarioRepositories;
+    using PicPay.Repository.LojaRepositories;
 
     public static class RepositoryDependeciesConfig
     {
@@ -13,6 +14,7 @@
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<ICarteiraRepository, CarteiraRepository>();
             services.AddScoped<ITransacaoRepository, TransacaoRepository>();
+            services.AddScoped<ILojaRepository, LojaRepository>();
             return services;
         }
     }
