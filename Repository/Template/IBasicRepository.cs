@@ -8,5 +8,6 @@
         void Update(T entity);
         Task<bool> DeleteByIdAsync(Guid id);
         Task SaveChangesAsync();
+        Task GetByCustomQueryAsync(IQueryable<T> query);
     }
 }

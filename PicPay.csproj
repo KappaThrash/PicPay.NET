@@ -39,6 +39,7 @@
 
   <ItemGroup>
     <Folder Include="Infra\" />
+    <Folder Include="Services\ProdutoServices\" />
   </ItemGroup>
 
 

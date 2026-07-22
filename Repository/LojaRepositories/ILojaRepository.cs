@@ -5,5 +5,6 @@ namespace PicPay.Repository.LojaRepositories
 {
     public interface ILojaRepository : IBasicRepository<Loja>
     {
+        public Task<Loja> GetByUserId(Guid id);
     }
 }

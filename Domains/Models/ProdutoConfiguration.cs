@@ -1,15 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using PicPay.Domains.Models.Template;
 using PicPay.Domains.Produtos;
 
-namespace PicPay.Domains.Models.Template
+namespace PicPay.Domains.Models
 {
     public class ProdutoConfiguration : EntidadeBaseConfiguration<Produto>
     {
         public override void Configure(EntityTypeBuilder<Produto> builder)
         {
             base.Configure(builder);
+
             builder.HasAlternateKey(p => new { p.Nome, p.LojaId });
+
             builder.Property(p => p.Nome).HasMaxLength(128).IsRequired();
             builder.Property(p => p.Descricao).HasMaxLength(500).IsRequired();
 

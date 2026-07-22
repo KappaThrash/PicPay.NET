@@ -45,6 +45,9 @@ namespace PicPay.Repository.Template
         {
             await _context.SaveChangesAsync();
         }
-
+        public virtual async Task GetByCustomQueryAsync(IQueryable<T> query)
+        {
+            await query.ToListAsync();
+        }
     }
 }
